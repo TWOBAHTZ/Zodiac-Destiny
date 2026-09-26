@@ -2,6 +2,7 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import CardFace, { CardBack } from './card-face';
+import CardDetails from './card-details';
 import { cards, type ZodiacCard } from '@/lib/cards';
 import { resolveDraw } from '@/lib/draw';
 import { loadCollection, savePulls, type Collection } from '@/lib/collection';
@@ -26,6 +27,7 @@ export default function ZodiacApp() {
   const [flightOffset, setFlightOffset] = useState(92);
   const [collection, setCollection] = useState<Collection>({});
   const [ready, setReady] = useState(false);
+  const [selectedCollectionCard, setSelectedCollectionCard] = useState<ZodiacCard | null>(null);
   const timers = useRef<number[]>([]);
 
   useEffect(() => {
@@ -41,6 +43,18 @@ export default function ZodiacApp() {
     return () => window.removeEventListener('resize', updateSpacing);
   }, []);
   useEffect(() => () => timers.current.forEach(window.clearTimeout), []);
+  useEffect(() => {
+    if (!selectedCollectionCard) return;
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setSelectedCollectionCard(null);
+    };
+    document.addEventListener('keydown', closeOnEscape);
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.removeEventListener('keydown', closeOnEscape);
+      document.body.style.overflow = '';
+    };
+  }, [selectedCollectionCard]);
 
   const fanCards = () => {
     if (phase !== 'idle') return;
@@ -91,13 +105,17 @@ export default function ZodiacApp() {
             return <motion.button key={card.id} className="fan-card" aria-label={`Pick card ${index+1} of 13`} onClick={()=>pickCard(index)} disabled={phase!=='fan'} style={{zIndex:selected?30:index,transformOrigin:'50% 50%'}} initial={{x:0,y:90,rotate:0,scale:.72,opacity:0}} animate={phase==='fan'?{x:arcX,y:arcY,rotate:angle,scale:1,opacity:1}:{x:selected?0:arcX,y:selected?flightOffset:105,rotate:selected?0:angle+(offset<0?-12:12),scale:selected?1.13:.72,opacity:selected?1:0,zIndex:selected?30:index}} transition={phase==='fan'?{type:'spring',stiffness:115,damping:14,delay:Math.abs(offset)*.025}:{duration:selected?.5:.28,delay:selected?0:Math.abs(offset)*.012,ease:[.22,.75,.25,1]}}><CardBack/></motion.button>;
           })}
         </div>}
-        {phase==='reveal' && pull && <div className="reveal-wrap"><AnimatePresence mode="wait"><motion.div key={pull.id} className={`flip-wrap ${pull.rarity==='SECRET'?'secret-reveal':''}`} initial={{rotateY:180,scale:.84,opacity:0}} animate={{rotateY:0,scale:1,opacity:1}} transition={{duration:.7,ease:[.2,.7,.2,1]}}><CardFace card={pull}/></motion.div></AnimatePresence><div className="reveal-caption"><span>YOUR PICK <i>·</i> {pull.rarity}</span><button onClick={nextDraw}>SHUFFLE &amp; DRAW AGAIN <b>→</b></button></div></div>}
+        {phase==='reveal' && pull && <div className="reveal-wrap"><div className="reveal-layout">
+          <div className="card-reveal-column"><AnimatePresence mode="wait"><motion.div key={pull.id} className={`flip-wrap ${pull.rarity==='SECRET'?'secret-reveal':''}`} initial={{rotateY:180,scale:.84,opacity:0}} animate={{rotateY:0,scale:1,opacity:1}} transition={{duration:.7,ease:[.2,.7,.2,1]}}><CardFace card={pull}/></motion.div></AnimatePresence><div className="reveal-caption"><span>YOUR PICK <i>·</i> {pull.rarity}</span><button onClick={nextDraw}>DRAW AGAIN <b>→</b></button></div></div>
+          <CardDetails card={pull}/>
+        </div></div>}
       </div>
       {phase==='idle' && <div className="gesture-instruction"><span className="gesture-icon">✧</span><span>TAP THE CARD TO FAN OUT 13</span><small>Click or touch</small></div>}
       {phase==='fan' && <div className="fan-instruction">✦ &nbsp; PICK ONE CARD FROM THE FAN &nbsp; ✦</div>}
       {phase==='flight' && <div className="hint">Your card is finding its way to you...</div>}
       {phase==='reveal' && pull?.rarity==='SECRET' && <motion.div className="secret-banner" initial={{opacity:0,y:12}} animate={{opacity:1,y:0}}>✦ THE MOONLIT CAT FOUND YOU ✦</motion.div>}
-    </section> : <section className="collection-section"><div className="collection-stats"><div><strong>{ready?discovered:0}<small>/13</small></strong><span>SIGNS DISCOVERED</span></div><div><strong>{ready?count:0}</strong><span>CARDS COLLECTED</span></div><div className="progress"><div><span>COLLECTION PROGRESS</span><span>{Math.round(discovered/13*100)}%</span></div><div className="progress-track"><i style={{width:`${discovered/13*100}%`}}/></div></div></div><div className="card-grid">{cards.map(card=>{const owned=collection[card.id]??0;return <div className={`collection-slot ${owned?'owned':''}`} key={card.id}>{owned?<><CardFace card={card} compact/><span className="owned-count">× {owned}</span></>:<div className="locked-card"><CardBack/><span>UNDISCOVERED</span></div>}</div>})}</div><div className="collection-footnote">{discovered===13?'THE ARCHIVE IS COMPLETE. THE STARS REMEMBER YOU.':'Fan the deck and choose a card to discover all twelve signs and the hidden moonlit cat.'}</div></section>}
+    </section> : <section className="collection-section"><div className="collection-stats"><div><strong>{ready?discovered:0}<small>/13</small></strong><span>SIGNS DISCOVERED</span></div><div><strong>{ready?count:0}</strong><span>CARDS COLLECTED</span></div><div className="progress"><div><span>COLLECTION PROGRESS</span><span>{Math.round(discovered/13*100)}%</span></div><div className="progress-track"><i style={{width:`${discovered/13*100}%`}}/></div></div></div><div className="card-grid">{cards.map(card=>{const owned=collection[card.id]??0;return <div className={`collection-slot ${owned?'owned':''}`} key={card.id}>{owned?<button type="button" className="collection-card-button" onClick={()=>setSelectedCollectionCard(card)} aria-label={`View ${card.name} card details`}><CardFace card={card} compact/><span className="owned-count">× {owned}</span></button>:<div className="locked-card"><CardBack/><span>UNDISCOVERED</span></div>}</div>})}</div><div className="collection-footnote">{discovered===13?'THE ARCHIVE IS COMPLETE. THE STARS REMEMBER YOU.':'Fan the deck and choose a card to discover all twelve signs and the hidden moonlit cat.'}</div></section>}
+    {selectedCollectionCard && <div className="card-modal-backdrop" onMouseDown={(event)=>{if(event.target===event.currentTarget)setSelectedCollectionCard(null)}}><section className="card-modal" role="dialog" aria-modal="true" aria-label={`${selectedCollectionCard.name} card details`}><button className="card-modal-close" type="button" onClick={()=>setSelectedCollectionCard(null)} aria-label="Close card details">×</button><div className="card-modal-layout"><div className="modal-card-face"><CardFace card={selectedCollectionCard}/></div><CardDetails card={selectedCollectionCard}/></div></section></div>}
     <footer><span>MADE UNDER A LUCKY STAR</span><span>✦</span><span>A LITTLE COLLECTION OF BIG PERSONALITIES</span></footer>
   </main>;
 }

@@ -23,4 +23,36 @@
 .fan-card{left:-64px}.fan-card .card-back{pointer-events:none}
 @media(max-width:800px){.fan-card{left:-55px}}
 @media(max-width:540px){.fan-card{left:-40px}}
+.reveal-layout{width:min(800px,100%);display:flex;align-items:center;justify-content:center;gap:30px}.card-reveal-column{flex:0 0 252px;display:flex;align-items:center;flex-direction:column}.reveal-info-panel{width:min(390px,42vw);max-height:380px;overflow:auto;padding:20px 21px 16px;border:1px solid #c3a45c66;border-radius:8px;background:linear-gradient(145deg,#1b1d19f5,#10130ff5);box-shadow:0 18px 52px #0009,inset 0 0 0 4px #ffffff05;color:#e8e3d5;text-align:left;scrollbar-color:#9d8145 #191a17;scrollbar-width:thin}.profile-kicker,.profile-years>span,.outfit-concept>span,.prompt-header>span{font:8px 'DM Mono',monospace;letter-spacing:.14em;color:#c6a75d}.profile-kicker{display:flex;justify-content:space-between;gap:10px}.profile-kicker span{color:#8d897c}.reveal-info-panel h2{font:500 27px/1.1 'Playfair Display',serif;color:#e5ce91;margin:11px 0 8px}.profile-personality{font:12px/1.6 'DM Sans',sans-serif;color:#d0cdc2;margin:0 0 14px}.profile-years{padding:10px 0;border-top:1px solid #ffffff12;border-bottom:1px solid #ffffff12}.profile-years p{font:10px/1.6 'DM Sans',sans-serif;color:#aaa79c;margin:4px 0 0}.outfit-concept{display:flex;flex-direction:column;gap:5px;padding:12px 0}.outfit-concept strong{font:500 16px 'Playfair Display',serif;color:#ded5b9}.prompt-header{display:flex;align-items:center;justify-content:space-between;gap:10px}.prompt-header button{border:1px solid #b89b52;background:#d2b364;color:#171710;padding:6px 9px;border-radius:2px;font:7px 'DM Mono',monospace;letter-spacing:.1em;cursor:pointer}.prompt-header button:hover{background:#eed58c}.image-prompt{margin:9px 0 10px;padding:10px;border:1px solid #ffffff13;border-radius:4px;background:#090c0bcc;color:#cbc6b6;font:9px/1.55 'DM Sans',sans-serif;white-space:pre-wrap;overflow-wrap:anywhere;max-height:134px;overflow:auto}.profile-source{display:inline-block;color:#aaa084;text-decoration:none;font:8px 'DM Mono',monospace;letter-spacing:.04em}.profile-source:hover{color:#e7cb7d}
+@media(max-width:800px){.reveal-layout{gap:20px}.reveal-info-panel{width:min(350px,46vw);padding:17px}.reveal-info-panel h2{font-size:24px}}
+@media(max-width:540px){.fan-opening-stage:has(.reveal-layout){height:auto;min-height:590px;padding-bottom:34px}.fan-scene:has(.reveal-layout){display:block;height:auto;min-height:0;overflow:visible}.reveal-wrap{position:relative;inset:auto;width:100%;height:auto;transform:none;padding:10px 0 35px}.reveal-layout{flex-direction:column;gap:17px;width:100%}.card-reveal-column{flex-basis:auto;width:100%}.reveal-info-panel{width:min(360px,92vw);max-height:none;padding:17px}.profile-personality{font-size:11px}.profile-kicker{font-size:7px}.image-prompt{max-height:180px}.secret-banner{bottom:5px;font-size:8px}}
 @media(max-width:540px){.pack{padding-top:52px}.pack-title{font-size:24px}.pack-title span{font-size:18px}.pack-zodiac-row{gap:5px}.pack-zodiac-row span{width:22px;height:22px;font-size:12px}.pack-tear-strip{left:9px;right:9px}.gesture-instruction{font-size:8px;gap:8px}.gesture-instruction small{font-size:8px}.back-emblem{width:75px;height:75px}}
+.collection-card-button{position:relative;display:block;width:100%;height:100%;padding:0;border:0;background:none;color:inherit;cursor:pointer;text-align:inherit;border-radius:8px}
+.collection-card-button:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+.collection-slot.owned{cursor:pointer}
+.collection-slot.owned .compact{transition:transform .2s,filter .2s}
+.collection-slot.owned:hover .compact{transform:translateY(-4px) scale(1.015);filter:brightness(1.08)}
+.collection-slot .owned-count{pointer-events:none}
+.card-modal-backdrop{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;padding:24px;background:#050605d9;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.card-modal{position:relative;width:min(860px,100%);max-height:min(90dvh,780px);overflow:auto;padding:27px;border:1px solid #c3a45c75;border-radius:12px;background:radial-gradient(ellipse at 50% 0%,#25261e,#11130f 72%);box-shadow:0 28px 100px #000d,inset 0 0 0 5px #ffffff06;scrollbar-color:#9d8145 #191a17;scrollbar-width:thin}
+.card-modal-close{position:absolute;top:10px;right:12px;z-index:2;width:34px;height:34px;border:1px solid #c3a45c66;border-radius:50%;background:#11130f;color:#e6d49e;font:24px/1 'DM Sans',sans-serif;cursor:pointer}
+.card-modal-close:hover{background:#d2b364;color:#171710}
+.card-modal-layout{display:flex;align-items:center;justify-content:center;gap:28px;padding:14px 12px 4px}
+.modal-card-face{flex:0 0 252px;width:252px;height:365px;filter:drop-shadow(0 20px 35px #0009)}
+.card-modal .reveal-info-panel{width:min(390px,calc(100% - 280px));max-height:calc(min(90dvh,780px) - 80px)}
+@media(max-width:700px){.card-modal-backdrop{padding:12px}.card-modal{padding:44px 14px 20px;max-height:94dvh}.card-modal-layout{flex-direction:column;gap:18px;padding:0}.modal-card-face{flex:0 0 auto;width:220px;height:320px}.card-modal .reveal-info-panel{width:min(390px,100%);max-height:none;padding:17px}.card-modal-close{top:8px;right:8px}}
+/* Mobile spacing fixes: keep the reveal card clear of the stage label and fit card text inside the modal card. */
+@media(max-width:540px){
+  .fan-opening-stage:has(.reveal-layout) .stage-label{display:none}
+  .fan-opening-stage:has(.reveal-layout){padding-top:8px}
+  .fan-scene:has(.reveal-layout) .reveal-wrap{padding-top:18px}
+  .card-modal-layout{gap:22px}
+  .modal-card-face{width:220px;height:320px}
+  .modal-card-face .card-art{height:126px;margin:7px 0 8px}
+  .modal-card-face .card-animal{font-size:66px}
+  .modal-card-face .card-info h3{font-size:19px}
+  .modal-card-face .card-year{font-size:21px}
+  .modal-card-face .card-description{font-size:8px;line-height:1.35;margin:5px 0 0;max-height:2.7em;overflow:hidden}
+  .modal-card-face .card-footer{bottom:10px;left:13px;right:13px}
+  .modal-card-face .card-info{gap:5px}
+}
