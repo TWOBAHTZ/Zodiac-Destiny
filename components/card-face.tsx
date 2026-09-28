@@ -1,6 +1,8 @@
 'use client';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import type { ZodiacCard } from '@/lib/cards';
+import { cardArtworkById } from '@/lib/card-artwork';
 
 export function CardBack() { return <div className="card-back">
   <svg className="back-engraving" viewBox="0 0 300 450" aria-hidden="true">
@@ -17,8 +19,12 @@ export function CardBack() { return <div className="card-back">
   <div className="back-emblem"><span className="emblem-yinyang">☯</span><i>✦</i></div>
   <span className="back-title">GODS OF<br/>THE ZODIAC</span><small>十二生肖 · CELESTIAL ARCHIVE</small>
 </div>; }
-export default function CardFace({ card, compact = false }: { card: ZodiacCard; compact?: boolean }) {
+export default function CardFace({ card, compact = false, artworkSrc }: { card: ZodiacCard; compact?: boolean; artworkSrc?: string }) {
   const secret = card.rarity === 'SECRET';
+  const artwork = cardArtworkById[card.id];
+  if (artwork) return <article className={`z-card image-only-card ${secret ? 'secret-card' : ''} ${compact ? 'compact' : ''}`} style={{ '--accent': card.accent } as React.CSSProperties}>
+    <Image className="image-only-card-image" src={artworkSrc ?? artwork.mainImage} alt={`${card.name} card artwork`} fill sizes={compact ? '(max-width: 540px) 42vw, 200px' : '(max-width: 540px) 80vw, 252px'} />
+  </article>;
   return <article className={`z-card ${secret ? 'secret-card' : ''} ${compact ? 'compact' : ''}`} style={{ '--accent': card.accent } as React.CSSProperties}>
     <div className="card-top"><span>{card.rarity === 'SECRET' ? '✦ SECRET' : '✧ COMMON'}</span><span>{card.year}</span></div>
     <div className="card-art"><div className="art-orbit orbit-one"/><div className="art-orbit orbit-two"/><span className="card-animal">{card.animal}</span><span className="art-spark spark-one">✦</span><span className="art-spark spark-two">✧</span></div>

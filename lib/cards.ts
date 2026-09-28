@@ -14,7 +14,7 @@ export type ZodiacCard = {
   imagePrompt: string;
 };
 
-const promptStyle = 'Original adult fantasy character, Korean fantasy webtoon/manhwa-inspired character illustration, refined expressive face, elegant confident pose, full-body costume concept, detailed fabric and embroidery, cinematic soft rim lighting, richly rendered, tasteful East Asian fantasy aesthetics, polished line art and painterly shading, clean dark navy studio background with subtle gold zodiac motifs, character clearly visible, no text, no logo, no watermark, vertical 2:3 composition.';
+const promptStyle = 'Original adult fantasy character, elegant confident pose, full-body costume concept, detailed fabric and embroidery, cinematic soft rim lighting, richly rendered, tasteful East Asian fantasy aesthetics, polished line art and painterly shading, clean dark navy studio background with subtle gold zodiac motifs, character clearly visible, no text, no logo, no watermark, vertical 2:3 composition.';
 
 export const cards: ZodiacCard[] = [
   {
