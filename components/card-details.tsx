@@ -43,8 +43,8 @@ export default function CardDetails({ card }: { card: ZodiacCard }) {
       {prompts.map(prompt => <li className="prompt-list-item" key={prompt.id}>
         <span className="prompt-list-name">{prompt.name}</span>
         <div className="prompt-list-actions">
-          <button className="prompt-copy-button" type="button" onClick={() => void copyPrompt(prompt)}>{copiedPromptId === prompt.id ? 'COPIED' : 'COPY'}</button>
-          <button className="prompt-view-button" type="button" onClick={() => setPreviewPrompt(prompt)} aria-label={`View ${prompt.name} prompt`} title={`View ${prompt.name} prompt`}>
+          <button className="prompt-copy-button" type="button" onClick={() => void copyPrompt(prompt)} disabled={!prompt.text} title={!prompt.text ? 'Prompt not added yet' : undefined}>{copiedPromptId === prompt.id ? 'COPIED' : 'COPY'}</button>
+          <button className="prompt-view-button" type="button" onClick={() => setPreviewPrompt(prompt)} disabled={!prompt.text} aria-label={`View ${prompt.name} prompt`} title={!prompt.text ? 'Prompt not added yet' : `View ${prompt.name} prompt`}>
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 12s3.4-6 9.5-6 9.5 6 9.5 6-3.4 6-9.5 6-9.5-6-9.5-6Z"/><circle cx="12" cy="12" r="2.7"/></svg>
           </button>
         </div>

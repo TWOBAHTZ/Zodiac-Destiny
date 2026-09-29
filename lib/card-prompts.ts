@@ -123,11 +123,115 @@ const catOriginalPrompts: Record<string, string> = {
   ].join('\n'),
 };
 
+const dogOriginalPrompts: Record<string, string> = {
+  'original-male': [
+    'Original face 100%',
+    '',
+    'VERTICAL ASPECT RATIO,',
+    'SLENDER ELONGATED TAROT CARD FORMAT,Celestial Luxury, dark divine aesthetic, elegant mysterious dog goddess frame, borders card, dog zodiac,',
+    'Premium tarot card proportions,',
+    '',
+    'Male dark fantasy assassin, muscular handsome male warrior with a dark gothic aesthetic, no hood covering the head, wearing a black sleeveless gothic assassin outfit with a long black cloak draped over the shoulders, black pointed dog ears with soft black fur and subtle gray inner fur, long thick fluffy black dog tail with dark gray and silver-white tip, black sleeveless fitted top exposing a muscular chest and broad shoulders, black leather cross-body harness, multiple black tactical belts and straps around the waist, silver rings and hanging metallic ornaments across the chest, black fingerless gloves, layered black leather arm wraps, heavy black armored bracers with sharp silver metallic edges, asymmetrical long black layered robe with multiple overlapping fabric panels, long flowing black coat extending to the ankles, dark charcoal fabric, silver buckles, black tactical trousers, black armored boots, an ivory-white bone skull mask with a wide jaw, sharp jagged teeth and multiple elongated fangs attached to the waist as an accessory, intricate leather textures, dark medieval fantasy assassin clothing, mysterious powerful warrior appearance, elegant dark gothic design, black and charcoal color palette, full body, front view, highly detailed anime character concept art.',
+    '',
+    'POSE & BODY LANGUAGE:',
+    'Dynamic low-angle perspective, character crouching on an elevated rooftop ledge, one knee raised prominently toward the camera, one leg bent and resting on the ledge, the other leg folded beneath the body, leaning slightly forward, one arm resting casually on the raised knee, the other arm hanging loosely downward toward the foreground, relaxed but intimidating posture, head slightly tilted downward, looking directly at the viewer, dominant and confident body language, dramatic foreshortening, strong perspective distortion, one oversized combat boot prominently positioned in the foreground.',
+    '',
+    'CAMERA & COMPOSITION:',
+    'Vertical 9:16 composition, full-body character illustration, dramatic low-angle shot, slightly tilted camera perspective, close foreground perspective, cinematic framing, character occupying most of the frame, strong depth of field, foreground ledge partially obscuring the lower body, detailed silhouette, dynamic asymmetrical composition.',
+    '',
+    'BACKGROUND:',
+    'Dark cyberpunk urban alley at night, industrial rooftop environment, rough concrete and dark brick walls, futuristic city architecture, dense tropical foliage and large palm leaves silhouetted against the background, bright neon yellow-green light source behind the character, glowing geometric light panels, scattered neon reflections, dark industrial structures, atmospheric urban decay, subtle floating dust particles, deep shadows, mysterious dystopian atmosphere.',
+    '',
+    'LIGHTING & COLOR PALETTE:',
+    'High-contrast cinematic lighting, intense neon lime green and electric yellow backlighting, dramatic rim light outlining the character\'s hair, dog ears, shoulders and clothing, subtle cool gray highlights, deep black shadows, luminous yellow-green reflections on metallic accessories, moody ambient lighting, strong contrast between bright background and dark character silhouette.',
+    '',
+    'ART STYLE & RENDERING:',
+    'High-quality anime illustration, semi-realistic anime character design, dark cyberpunk aesthetic, gothic street fashion, intricate clothing details, clean sharp line art, detailed hair strands, realistic fabric folds, highly detailed tactical accessories, polished cel shading, subtle painterly shading, dramatic cinematic atmosphere, professional character concept art, highly detailed, crisp focus, masterpiece.',
+    '',
+    'MOOD & ATMOSPHERE:',
+    'Mysterious, rebellious, confident, intimidating, nocturnal, dark futuristic aesthetic, elegant cyberpunk antihero, edgy gothic fashion.',
+    '',
+    'NEGATIVE PROMPT:',
+    'low quality, blurry, low resolution, bad anatomy, malformed hands, extra fingers, missing fingers, extra limbs, duplicated body parts, distorted face, asymmetrical eyes, deformed legs, incorrect joints, stiff pose, flat lighting, washed-out colors, bright pastel palette, excessive highlights, messy composition, cropped head, cropped ears, missing tail, missing dog ears, missing ivory-white skull mask at waist, missing neon accents, text, watermark, logo.',
+  ].join('\n'),
+  'original-female': [
+    'Original face 100%',
+    '',
+    'VERTICAL ASPECT RATIO,',
+    'SLENDER ELONGATED TAROT CARD FORMAT,Celestial Luxury, dark divine aesthetic, elegant mysterious dog goddess frame, borders card, dog zodiac,',
+    'Premium tarot card proportions,',
+    '',
+    'Female dark fantasy assassin, beautiful tall athletic female warrior with an elegant yet intimidating dark gothic aesthetic, no hood covering the head, wearing a long black gothic cloak draped over the shoulders, black pointed dog ears with soft black fur and subtle gray inner fur, long fluffy black dog tail with dark gray and silver-white tip, fitted black sleeveless gothic top with a deep neckline, exposed midriff and bare shoulders, black leather cross-body harness and chest straps, multiple silver rings and hanging metallic ornaments, black leather arm sleeves, black fingerless gloves, layered black leather belts and tactical straps around the waist and hips, silver buckles and hanging dagger-shaped accessories, asymmetrical long black skirt with multiple overlapping fabric layers, high side slits exposing the thighs, long flowing black cloak panels, fitted black shorts underneath, dark armored thigh accessories, black and silver armored forearm guards, black knee-high boots with pointed armored details, an ivory-white bone skull mask with a wide jaw, sharp jagged teeth and multiple elongated fangs attached to the waist as an accessory, intricate leather textures, dark charcoal and black fabric, medieval fantasy assassin clothing, mysterious elegant silhouette, black and charcoal color palette, full body, front view, highly detailed anime character concept art.',
+    '',
+    'POSE & BODY LANGUAGE:',
+    'Dynamic low-angle perspective, character crouching on an elevated rooftop ledge, one knee raised prominently toward the camera, one leg bent and resting on the ledge, the other leg folded beneath the body, leaning slightly forward, one arm resting casually on the raised knee, the other arm hanging loosely downward toward the foreground, relaxed but intimidating posture, head slightly tilted downward, looking directly at the viewer, dominant and confident body language, dramatic foreshortening, strong perspective distortion, one oversized combat boot prominently positioned in the foreground.',
+    '',
+    'CAMERA & COMPOSITION:',
+    'Vertical 9:16 composition, full-body character illustration, dramatic low-angle shot, slightly tilted camera perspective, close foreground perspective, cinematic framing, character occupying most of the frame, strong depth of field, foreground ledge partially obscuring the lower body, detailed silhouette, dynamic asymmetrical composition.',
+    '',
+    'BACKGROUND:',
+    'Dark cyberpunk urban alley at night, industrial rooftop environment, rough concrete and dark brick walls, futuristic city architecture, dense tropical foliage and large palm leaves silhouetted against the background, bright neon yellow-green light source behind the character, glowing geometric light panels, scattered neon reflections, dark industrial structures, atmospheric urban decay, subtle floating dust particles, deep shadows, mysterious dystopian atmosphere.',
+    '',
+    'LIGHTING & COLOR PALETTE:',
+    'High-contrast cinematic lighting, intense neon lime green and electric yellow backlighting, dramatic rim light outlining the character\'s hair, dog ears, shoulders and clothing, subtle cool gray highlights, deep black shadows, luminous yellow-green reflections on metallic accessories, moody ambient lighting, strong contrast between bright background and dark character silhouette.',
+    '',
+    'ART STYLE & RENDERING:',
+    'High-quality anime illustration, semi-realistic anime character design, dark cyberpunk aesthetic, gothic street fashion, intricate clothing details, clean sharp line art, detailed hair strands, realistic fabric folds, highly detailed tactical accessories, polished cel shading, subtle painterly shading, dramatic cinematic atmosphere, professional character concept art, highly detailed, crisp focus, masterpiece.',
+    '',
+    'MOOD & ATMOSPHERE:',
+    'Mysterious, rebellious, confident, intimidating, nocturnal, dark futuristic aesthetic, elegant cyberpunk antihero, edgy gothic fashion.',
+    '',
+    'NEGATIVE PROMPT:',
+    'low quality, blurry, low resolution, bad anatomy, malformed hands, extra fingers, missing fingers, extra limbs, duplicated body parts, distorted face, asymmetrical eyes, deformed legs, incorrect joints, stiff pose, flat lighting, washed-out colors, bright pastel palette, excessive highlights, messy composition, cropped head, cropped ears, missing tail, missing dog ears, missing ivory-white skull mask at waist, missing neon accents, text, watermark, logo.',
+  ].join('\n'),
+};
+
+const goatOriginalPrompt: Record<string, string> = {
+  'original-male': '',
+  'original-female': [
+    'Original face 100%',
+    '',
+    '9:16  VERTICAL ASPECT RATIO,',
+    'SLENDER ELONGATED TAROT CARD FORMAT,Celestial Luxury, dark divine aesthetic, elegant mysterious goddess frame,',
+    'Premium tarot card proportions,',
+    '',
+    '1 adult female sheep demoness, original character, beautiful mature anime girl, long voluminous hair with messy layered bangs, fluffy wavy hair flowing down to her thighs, large curved black ram horns with dark reddish-brown markings, long pointed sheep ears, pale porcelain skin, glowing eyes, subtle eyes makeup, delicate facial features, confident and slightly seductive smile, red tribal markings on her face, shoulders, arms, abdomen and thighs.',
+    'Wearing a luxurious black and crimson red dark fantasy warrior outfit, black leather strappy crop top with a plunging neckline, black choker with intricate metal details, exposed midriff, red tribal tattoos covering her body, asymmetrical black and red short skirt with a long rectangular red front panel, intricate black geometric rune symbols embroidered on the fabric, wide black leather belt with multiple buckles and metal rings, layered black fabric, dark fur trims around the wrists, shoulders, waist and boots, black thigh-high boots with fur cuffs, open-toe sandals, elaborate gothic accessories, red dangling earrings, intricate leather straps and silver metal ornaments.',
+    'Holding an enormous double-bladed fantasy battle axe with one hand, extremely long black and dark crimson shaft, massive dark steel axe head, glowing red rune symbols engraved on the blade, ornate gothic weapon design, sharp metallic edges, intricate red decorations, imposing heavy weapon.',
+    'Full-body standing character, confident and relaxed warrior stance, holding a giant battle axe vertically beside her body with one hand, one leg slightly bent, weight shifted onto one leg, shoulders relaxed, body facing forward, head slightly tilted, looking directly at the viewer, confident seductive expression, long flowing hair and fur moving gently, elegant yet powerful presence.',
+    '',
+    'Background:',
+    'Dark mystical fantasy temple, gothic architecture, enormous black stone pillars, dark crimson banners, ancient geometric runes, mysterious demonic symbols, floating red embers, subtle smoke, atmospheric dark fantasy environment, dramatic cinematic lighting, faint red magical glow, dark charcoal and crimson color palette.',
+    '',
+    'Art Style & Rendering:',
+    'High-quality semi-realistic anime illustration, detailed fantasy character concept art, elegant dark fantasy aesthetic, refined line art, realistic anatomy, beautiful facial details, intricate costume design, highly detailed fabric textures, realistic leather and metal materials, soft painterly shading, dramatic cinematic lighting, subtle rim lighting, high contrast, sophisticated composition, premium collectible fantasy character art, ultra-detailed, 8K quality.',
+    '',
+    'Color Palette:',
+    'Crimson red, deep black, charcoal gray, dark burgundy, ivory white, muted silver, subtle warm highlights.',
+    '',
+    'Composition & Quality:',
+    'Vertical 9:16 aspect ratio, full-body character prominently displayed, centered composition, tall elegant proportions, detailed character reference sheet, sharp focus, consistent character design, professional fantasy artbook presentation, masterpiece.',
+    '',
+    'Negative Prompt:',
+    'Panels, quality, blurry, pixelated, bad anatomy, extra limbs, extra fingers, missing fingers, malformed hands, deformed face, asymmetrical eyes, short hair, missing horns, missing ears, incorrect weapon, duplicated character, inconsistent outfit, poorly drawn details, cropped feet, cropped head, text, watermark, logo.',
+  ].join('\n'),
+};
+
 export function getCardPrompts(card: ZodiacCard): CardPrompt[] {
-  const availableVariants = card.id === 'cat' ? promptVariants.slice(0, 2) : promptVariants;
+  const availableVariants = card.id === 'cat' || card.id === 'goat'
+    ? promptVariants.slice(0, 2)
+    : card.id === 'dog'
+      ? promptVariants.filter(variant => variant.id in dogOriginalPrompts)
+      : promptVariants;
   return availableVariants.map(variant => ({
     id: variant.id,
     name: variant.name,
-    text: card.id === 'cat' ? catOriginalPrompts[variant.id] : `${card.imagePrompt}\n\n${variant.direction}`,
+    text: card.id === 'cat'
+      ? catOriginalPrompts[variant.id]
+      : card.id === 'dog'
+        ? dogOriginalPrompts[variant.id]
+        : card.id === 'goat'
+          ? goatOriginalPrompt[variant.id]
+          : `${card.imagePrompt}\n\n${variant.direction}`,
   }));
 }

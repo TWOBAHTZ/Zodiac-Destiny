@@ -33,6 +33,7 @@
 .prompt-view-button{display:grid;place-items:center;width:26px;height:26px;padding:4px;border:1px solid #ffffff16;border-radius:2px;background:#151713;color:#c9b77d;cursor:pointer}
 .prompt-view-button svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
 .prompt-view-button:hover{border-color:#d7b872;color:#f0d27d}
+.prompt-copy-button:disabled,.prompt-view-button:disabled{opacity:.4;cursor:not-allowed}
 .prompt-copy-button:focus-visible,.prompt-view-button:focus-visible,.prompt-preview-close:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 .prompt-preview-backdrop{position:fixed;inset:0;z-index:1300;display:grid;place-items:center;padding:20px;background:#050605dc;backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px)}
 .prompt-preview-dialog{position:relative;width:min(560px,100%);max-height:min(80dvh,680px);overflow:auto;padding:27px;border:1px solid #c3a45c80;border-radius:8px;background:linear-gradient(145deg,#1b1d19,#10130f);box-shadow:0 24px 80px #000c;color:#e8e3d5}
@@ -78,8 +79,14 @@
 .flip-wrap:has(>.image-only-card){height:auto;aspect-ratio:var(--artwork-ratio,2/3)}
 .collection-slot .image-only-card.compact{width:min(100%,220px);height:auto;aspect-ratio:var(--artwork-ratio,2/3)}
 .modal-card-face:has(>.image-only-card){height:auto;aspect-ratio:var(--artwork-ratio,2/3)}
-.card-artwork-gallery{display:grid;gap:9px;width:100%}
-.card-artwork-gallery h3{margin:0;color:#c6a75d;font:9px 'DM Mono',monospace;letter-spacing:.13em}
+.card-artwork-gallery{display:grid;gap:9px;width:100%;min-width:0}
+.card-artwork-gallery-heading{display:flex;align-items:center;justify-content:space-between;gap:8px;width:100%;min-width:0;overflow:hidden}
+.card-artwork-gallery h3{flex:1;min-width:0;margin:0;overflow:hidden;color:#c6a75d;font:9px 'DM Mono',monospace;letter-spacing:.13em;text-overflow:ellipsis;white-space:nowrap}
+.card-artwork-pin-control{display:flex;flex:0 1 auto;align-items:center;gap:4px;max-width:50%;min-width:0;overflow:hidden;padding:4px 6px;border:1px solid #d8bd7066;border-radius:3px;background:#10120f;color:#e8d28d;font:7px 'DM Mono',monospace;letter-spacing:.05em;white-space:nowrap;cursor:pointer;transition:background .18s,color .18s}
+.card-artwork-pin-control svg{width:12px;height:12px;fill:currentColor}
+.card-artwork-pin-control span{overflow:hidden;text-overflow:ellipsis}
+.card-artwork-pin-control:hover,.card-artwork-pin-control[aria-pressed="true"]{background:#e5c46a;color:#171710}
+.card-artwork-pin-control:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 .card-artwork-credit{margin:-9px 0 0;color:#aaa38f;font:8px 'DM Mono',monospace;letter-spacing:.04em;overflow-wrap:anywhere}
 .card-artwork-thumbnails{display:flex;gap:8px;overflow-x:auto;padding:2px 2px 7px;scrollbar-color:#9d8145 #191a17;scrollbar-width:thin}
 .card-artwork-thumbnail{position:relative;flex:0 0 58px;aspect-ratio:2/3;padding:3px;border:1px solid #c3a45c55;border-radius:4px;background:#11130f;cursor:pointer;opacity:.72;transition:opacity .18s,border-color .18s,transform .18s}
@@ -162,12 +169,12 @@
 .collection-slot .image-only-card.compact{width:min(100%,185.625px);height:auto;aspect-ratio:9/16}
 .image-only-card{aspect-ratio:9/16}
 .image-only-card-image{object-fit:cover;object-position:center}
-.modal-card-column{flex-basis:225px;width:225px}
+.card-modal-column{flex-basis:225px;width:225px}
 .modal-card-face,.modal-card-face:has(>.image-only-card){flex:0 0 auto;width:225px;height:auto;aspect-ratio:9/16}
 .card-artwork-thumbnail{aspect-ratio:9/16}
 .card-artwork-thumbnail img{object-fit:cover;object-position:center}
 @media(max-width:800px){.collection-slot .compact,.collection-slot .locked-card{width:min(100%,168.75px)}.collection-slot .image-only-card.compact{width:min(100%,168.75px)}.fan-scene:has(.reveal-layout){height:520px}}
-@media(max-width:700px){.modal-card-column{flex-basis:auto;width:220px}.modal-card-face,.modal-card-face:has(>.image-only-card){width:220px}}
+@media(max-width:700px){.card-modal-column{flex-basis:auto;width:220px}.modal-card-face,.modal-card-face:has(>.image-only-card){width:220px}}
 @media(max-width:540px){.collection-slot .compact,.collection-slot .locked-card{width:min(100%,160.875px)}.collection-slot .image-only-card.compact{width:min(100%,160.875px)}.fan-scene:has(.reveal-layout){height:auto;min-height:0}.flip-wrap{width:220px}.fan-opening-stage:has(.deck-trigger) .deck-trigger{bottom:75px}}
 .card-back{box-shadow:inset 0 0 0 2px #c29d4a12,inset 0 0 0 4px #bd934044,0 14px 35px #0009}
 .back-engraving{stroke-width:.8;opacity:.72}

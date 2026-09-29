@@ -7,7 +7,7 @@ import CardArtworkGallery from './card-artwork-gallery';
 import { type ZodiacCard } from '@/lib/cards';
 import { cardVolumes, getPackCards, type CardPack } from '@/lib/card-packs';
 import { resolveDraw } from '@/lib/draw';
-import { loadCollection, savePulls, type Collection } from '@/lib/collection';
+import { loadCollection, loadPinnedArtworks, savePinnedArtworks, savePulls, type Collection, type PinnedArtworks } from '@/lib/collection';
 import PackCollection from './pack-collection';
 import CollectionVolumePicker from './collection-volume-picker';
 
@@ -30,6 +30,7 @@ export default function ZodiacApp() {
   const [fanSpacing, setFanSpacing] = useState(27);
   const [flightOffset, setFlightOffset] = useState(92);
   const [collection, setCollection] = useState<Collection>({});
+  const [pinnedArtworks, setPinnedArtworks] = useState<PinnedArtworks>({});
   const [selectedCollectionVolume, setSelectedCollectionVolume] = useState<number | null>(null);
   const [selectedPack, setSelectedPack] = useState<CardPack | null>(null);
   const [ready, setReady] = useState(false);
@@ -38,6 +39,7 @@ export default function ZodiacApp() {
 
   useEffect(() => {
     setCollection(loadCollection());
+    setPinnedArtworks(loadPinnedArtworks());
     setReady(true);
     const updateSpacing = () => {
       const width = window.innerWidth;
@@ -48,6 +50,9 @@ export default function ZodiacApp() {
     window.addEventListener('resize', updateSpacing);
     return () => window.removeEventListener('resize', updateSpacing);
   }, []);
+  useEffect(() => {
+    if (ready) savePinnedArtworks(pinnedArtworks);
+  }, [pinnedArtworks, ready]);
   useEffect(() => () => timers.current.forEach(window.clearTimeout), []);
   useEffect(() => {
     if (!selectedCollectionCard) return;
@@ -89,6 +94,14 @@ export default function ZodiacApp() {
     setChosenIndex(null);
     setPhase('idle');
   };
+  const togglePinnedArtwork = (cardId: string, src: string) => {
+    setPinnedArtworks(current => {
+      const next = { ...current };
+      if (next[cardId] === src) delete next[cardId];
+      else next[cardId] = src;
+      return next;
+    });
+  };
 
   const selectedVolume = cardVolumes.find(volume => volume.packs.some(pack => pack.id === selectedPack?.id));
   const collectionVolume = cardVolumes.find(volume => volume.number === selectedCollectionVolume);
@@ -128,10 +141,10 @@ export default function ZodiacApp() {
     </section> : !collectionVolume ? <CollectionVolumePicker volumes={cardVolumes} collection={collection} onSelect={setSelectedCollectionVolume}/> : <section className="collection-section">
       <div className="collection-volume-toolbar"><button type="button" onClick={()=>setSelectedCollectionVolume(null)}>← ALL VOLUMES</button><span>VOL. {String(collectionVolume.number).padStart(2,'0')} · {collectionVolume.title.toUpperCase()}</span></div>
       <div className="collection-stats"><div><strong>{ready?volumeDiscovered:0}<small>/{volumeCards.length}</small></strong><span>CARDS DISCOVERED</span></div><div><strong>{ready?volumeCount:0}</strong><span>CARDS COLLECTED</span></div><div className="progress"><div><span>VOLUME PROGRESS</span><span>{Math.round(volumeDiscovered/Math.max(volumeCards.length,1)*100)}%</span></div><div className="progress-track"><i style={{width:`${volumeDiscovered/Math.max(volumeCards.length,1)*100}%`}}/></div></div></div>
-      <div className="card-grid">{volumeCards.map(card=>{const owned=collection[card.id]??0;return <div className={`collection-slot ${owned?'owned':''}`} key={card.id}>{owned?<button type="button" className="collection-card-button" onClick={()=>setSelectedCollectionCard(card)} aria-label={`View ${card.name} card details`}><CardFace card={card} compact/><span className="owned-count">× {owned}</span></button>:<div className="locked-card"><CardBack/></div>}</div>})}</div>
+      <div className="card-grid">{volumeCards.map(card=>{const owned=collection[card.id]??0;return <div className={`collection-slot ${owned?'owned':''}`} key={card.id}>{owned?<button type="button" className="collection-card-button" onClick={()=>setSelectedCollectionCard(card)} aria-label={`View ${card.name} card details`}><CardFace card={card} compact artworkSrc={pinnedArtworks[card.id]}/><span className="owned-count">× {owned}</span></button>:<div className="locked-card"><CardBack/></div>}</div>})}</div>
       <div className="collection-footnote">{volumeDiscovered===volumeCards.length?'THE ARCHIVE IS COMPLETE. THE STARS REMEMBER YOU.':`Discover the cards in ${collectionVolume.title}.`}</div>
     </section>}
-    {selectedCollectionCard && <div className="card-modal-backdrop" onMouseDown={(event)=>{if(event.target===event.currentTarget)setSelectedCollectionCard(null)}}><section className="card-modal" role="dialog" aria-modal="true" aria-label={`${selectedCollectionCard.name} card details`}><button className="card-modal-close" type="button" onClick={()=>setSelectedCollectionCard(null)} aria-label="Close card details">×</button><div className="card-modal-layout"><CardArtworkGallery card={selectedCollectionCard}/><CardDetails card={selectedCollectionCard}/></div></section></div>}
+    {selectedCollectionCard && <div className="card-modal-backdrop" onMouseDown={(event)=>{if(event.target===event.currentTarget)setSelectedCollectionCard(null)}}><section className="card-modal" role="dialog" aria-modal="true" aria-label={`${selectedCollectionCard.name} card details`}><button className="card-modal-close" type="button" onClick={()=>setSelectedCollectionCard(null)} aria-label="Close card details">×</button><div className="card-modal-layout"><CardArtworkGallery card={selectedCollectionCard} pinnedImage={pinnedArtworks[selectedCollectionCard.id]} onPinArtwork={togglePinnedArtwork}/><CardDetails card={selectedCollectionCard}/></div></section></div>}
     <footer><span>MADE UNDER A LUCKY STAR</span><span>✦</span><span>A LITTLE COLLECTION OF BIG PERSONALITIES</span></footer>
   </main>;
 }
