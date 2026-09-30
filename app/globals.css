@@ -87,7 +87,7 @@
 .card-artwork-pin-control span{overflow:hidden;text-overflow:ellipsis}
 .card-artwork-pin-control:hover,.card-artwork-pin-control[aria-pressed="true"]{background:#e5c46a;color:#171710}
 .card-artwork-pin-control:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
-.card-artwork-credit{margin:-9px 0 0;color:#aaa38f;font:8px 'DM Mono',monospace;letter-spacing:.04em;overflow-wrap:anywhere}
+.card-artwork-credit{width:fit-content;margin:-4px 0 0;padding:5px 9px;border-left:2px solid #e1c36b;background:linear-gradient(100deg,#d7b87224,#d7b87208);color:#f0d890;font:500 10px 'DM Mono',monospace;letter-spacing:.08em;overflow-wrap:anywhere;text-shadow:0 0 12px #d7b87230}
 .card-artwork-thumbnails{display:flex;gap:8px;overflow-x:auto;padding:2px 2px 7px;scrollbar-color:#9d8145 #191a17;scrollbar-width:thin}
 .card-artwork-thumbnail{position:relative;flex:0 0 58px;aspect-ratio:2/3;padding:3px;border:1px solid #c3a45c55;border-radius:4px;background:#11130f;cursor:pointer;opacity:.72;transition:opacity .18s,border-color .18s,transform .18s}
 .card-artwork-thumbnail:hover{opacity:1;transform:translateY(-2px)}

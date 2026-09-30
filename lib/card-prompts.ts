@@ -217,21 +217,382 @@ const goatOriginalPrompt: Record<string, string> = {
   ].join('\n'),
 };
 
+const horseOriginalPrompt: Record<string, string> = {
+  'original-male': '',
+  'original-female': '',
+};
+
+const rabbitOriginalPrompt: Record<string, string> = {
+  'original-male': `Use the attached face reference image to preserve the character's exact facial identity, face shape, facial features, hairstyle, eye shape, and overall appearance. Do not redesign the face.
+
+A majestic divine male deity representing the Year of the Rabbit / Zodiac Rabbit, a celestial deity of the MOON, PEACE, TRANQUILITY and INNER HARMONY, elegant, serene, mysterious and divine, luxurious high-end fantasy character artwork.
+
+((almost full body:1.8)), ((head-to-near-feet composition:1.8)), ((full character visible:1.8)), ((entire body clearly visible:1.7)), character shown from head down to near the ankles, generous space around the character, balanced vertical composition, not a close-up, not a half-body portrait, not cropped.
+
+((balanced rabbit ears:1.8)), ((medium-sized elegant rabbit ears:1.7)), clearly visible long rabbit ears positioned naturally on the top of the head, proportional to the character's head, neither too large nor too small, symmetrical, elegant celestial rabbit ears, naturally integrated with the hairstyle.
+
+Refined human facial structure with subtle rabbit-deity characteristics, calm peaceful expression, gentle intelligent eyes, serene divine presence, subtle luminous moon markings around the eyes.
+
+((celestial moon deity clothing:1.6)), luxurious Western high-fantasy ceremonial attire, NOT traditional Chinese clothing, NOT Chinese costume. Predominantly white flowing garments, soft silver layered fabrics, elegant pale-blue translucent fabric accents, delicate silver embroidery, celestial metallic ornaments, refined silver jewelry, flowing sleeves and graceful fantasy garments, luxurious divine design.
+
+Long flowing white and silver garments extending toward the lower body, elegant layered fabric, subtle moon-shaped ornaments, refined fantasy footwear, graceful celestial accessories.
+
+The deity symbolizes MOONLIGHT, PEACE, TRANQUILITY, CALMNESS, INNER HARMONY and SERENITY.
+
+Strong lunar symbolism: ((sacred crescent moon emblem:1.7)), luminous crescent moon symbols, glowing moon ornaments, silver lunar jewelry, floating moon fragments, soft celestial particles, subtle stars, mystical lunar runes.
+
+Strong Rabbit zodiac symbolism: ((sacred RABBIT ZODIAC emblem:1.7)), elegant silver rabbit emblem integrated into the costume, subtle rabbit motifs engraved into ornaments, graceful rabbit symbolism, small ethereal rabbit spirits appearing subtly within the environment.
+
+A large luminous full moon behind the deity, soft moonlight illuminating the character, peaceful celestial night sky, thin clouds, subtle stars, dreamy moonlit mist, calm sacred atmosphere, tranquil celestial landscape.
+
+A delicate minimalist SILVER ORNAMENTAL BORDER surrounding the artwork, ((thin elegant silver linework:1.7)), fine celestial filigree, subtle geometric lines, small ornamental corner details, delicate zodiac symbols integrated into the border, refined RABBIT ZODIAC emblem subtly incorporated into the upper and lower border, small crescent moon motifs, thin metallic silver lines, elegant symmetrical decorative lines, luxurious but understated. The border must remain thin and delicate, never become a large heavy frame, and must never cover, overlap, or obstruct the character.
+
+STRICT COLOR PALETTE: WHITE, SILVER and LIGHT BLUE ONLY. White dominant, metallic silver secondary, soft celestial blue accents. No red, no crimson, no purple, no green, no orange, no gold.
+
+Soft moonlight, cool silver highlights, gentle pale-blue glow, peaceful atmospheric lighting, subtle luminous aura, realistic fantasy rendering, ultra-detailed textures, premium collectible celestial deity artwork, majestic composition, serene divine atmosphere, 8K, masterpiece, sharp details, vertical 9:16.`,
+  'original-female': `Use the attached face reference image to preserve the character's exact facial identity, face shape, facial features, hairstyle, eye shape, and overall appearance. Do not redesign the face.
+
+A majestic divine female deity representing the Year of the Rabbit / Zodiac Rabbit, a celestial goddess of the MOON, PEACE, TRANQUILITY and INNER HARMONY, elegant, graceful, serene, mysterious and divine, luxurious high-end fantasy character artwork.
+
+((almost full body:1.8)), ((head-to-near-feet composition:1.8)), ((full character visible:1.8)), ((entire body clearly visible:1.7)), character shown from head down to near the ankles, generous space around the character, balanced vertical composition, not a close-up, not a half-body portrait, not cropped.
+
+((balanced rabbit ears:1.8)), ((medium-sized elegant rabbit ears:1.7)), clearly visible long rabbit ears positioned naturally on the top of the head, proportional to the character's head, neither too large nor too small, symmetrical, elegant celestial rabbit ears, naturally integrated with the hairstyle.
+
+Refined human facial structure with subtle rabbit-deity characteristics, calm peaceful expression, gentle serene eyes, graceful divine presence, subtle luminous moon markings around the eyes.
+
+((celestial moon deity clothing:1.6)), luxurious Western high-fantasy ceremonial attire, NOT traditional Chinese clothing, NOT Chinese costume. Predominantly white flowing garments, soft silver layered fabrics, elegant pale-blue translucent fabric accents, delicate silver embroidery, celestial metallic ornaments, refined silver jewelry, flowing elegant fabric, luxurious divine design.
+
+Long flowing white and silver garments extending toward the lower body, graceful layered skirt, subtle crescent-moon ornaments, elegant fantasy footwear, delicate celestial accessories.
+
+The deity symbolizes MOONLIGHT, PEACE, TRANQUILITY, CALMNESS, INNER HARMONY and SERENITY.
+
+Strong lunar symbolism: ((sacred crescent moon emblem:1.7)), luminous crescent moon symbols, elegant silver lunar jewelry, glowing moon ornaments, floating moon fragments, soft celestial particles, subtle stars, mystical lunar runes.
+
+Strong Rabbit zodiac symbolism: ((sacred RABBIT ZODIAC emblem:1.7)), elegant silver rabbit emblem integrated into the costume, subtle rabbit motifs engraved into jewelry and ornaments, graceful rabbit symbolism, small ethereal rabbit spirits appearing subtly within the environment.
+
+A large luminous full moon behind the goddess, soft moonlight illuminating her figure, peaceful celestial night sky, thin clouds, subtle stars, dreamy moonlit mist, tranquil sacred atmosphere.
+
+A delicate minimalist SILVER ORNAMENTAL BORDER surrounding the artwork, ((thin elegant silver linework:1.7)), fine celestial filigree, subtle geometric lines, small ornamental corner details, delicate zodiac symbols integrated into the border, refined RABBIT ZODIAC emblem subtly incorporated into the upper and lower border, small crescent moon motifs, thin metallic silver lines, elegant symmetrical decorative lines, luxurious but understated. The border must remain thin and delicate, never become a large heavy frame, and must never cover, overlap, or obstruct the character.
+
+STRICT COLOR PALETTE: WHITE, SILVER and LIGHT BLUE ONLY. White dominant, metallic silver secondary, soft celestial blue accents. No red, no crimson, no purple, no green, no orange, no gold.
+
+Soft moonlight, cool silver highlights, gentle pale-blue glow, peaceful atmospheric lighting, subtle luminous aura, realistic fantasy rendering, ultra-detailed textures, premium collectible celestial deity artwork, majestic composition, serene divine atmosphere, 8K, masterpiece, sharp details, vertical 9:16.`,
+};
+
+const ratOriginalPrompt: Record<string, string> = {
+  'original-male': `Use the attached face reference image to preserve the character's exact facial identity, face shape, facial features, hairstyle, eye shape, and overall appearance. Do not redesign the face.
+
+A majestic divine male deity representing the Zodiac Rat, dark gothic fantasy divine aesthetic, elegant, mysterious, intelligent, wealthy and powerful, luxurious high-end fantasy character artwork.
+
+((almost full body:1.8)), ((head-to-near-feet composition:1.8)), ((full character visible:1.8)), ((entire body clearly visible:1.7)), character shown from head down to near the ankles, generous space around the character, balanced vertical composition, not a close-up, not a half-body portrait, not cropped.
+
+((balanced rat ears:1.8)), ((medium-sized rounded rat ears:1.7)), clearly visible rounded rat ears positioned naturally on the upper sides of the head, proportional to the character's head, neither too large nor too small, symmetrical, elegant divine rat ears, naturally integrated with the hairstyle.
+
+Refined human facial structure with subtle rat-deity characteristics, calm intelligent expression, mysterious sharp eyes, composed divine presence, subtle mystical markings around the eyes.
+
+((dark fantasy deity clothing:1.6)), luxurious Western dark-fantasy ceremonial attire, NOT traditional Chinese clothing, NOT Chinese costume. Predominantly black layered garments, elegant black fabrics, dark leather details, black fur accents, polished silver armor ornaments, silver chains, metallic accessories, refined antique gold decorations, luxurious high-fantasy royal design.
+
+Long flowing dark garments extending toward the lower body, elegant layered fabric, ornate waist accessories, detailed fantasy boots, sophisticated divine accessories.
+
+The deity symbolizes WISDOM, INTELLIGENCE, KNOWLEDGE, WEALTH, GOOD FORTUNE and PROSPERITY.
+
+Visual symbolism of wisdom: ancient magical books, glowing manuscripts, sacred knowledge symbols, mystical runes, floating pages and subtle luminous geometric symbols.
+
+Visual symbolism of wealth and fortune: elegant golden coins, precious treasure, subtle golden particles, sacred prosperity symbols, luxurious ornaments.
+
+Strong Zodiac Rat symbolism: ((sacred RAT ZODIAC emblem:1.7)), refined golden rat emblem integrated into the costume, subtle rat motifs engraved into ornaments, small mystical rat symbols, elegant sacred rat imagery, sophisticated rather than cute.
+
+Ancient dark divine temple, monumental black stone architecture, dark metallic pillars, subtle silver ornaments, mysterious shadows, sacred atmosphere, elegant mystical environment.
+
+A delicate minimalist GOLDEN ORNAMENTAL BORDER surrounding the artwork, ((thin elegant golden linework:1.7)), fine celestial filigree, subtle geometric lines, small ornamental corner details, delicate zodiac symbols integrated into the border, refined RAT ZODIAC emblem subtly incorporated into the upper and lower border, small sacred rat motifs and prosperity symbols, thin metallic gold lines, elegant symmetrical decorative lines, luxurious but understated. The border must remain thin and delicate, never become a large heavy frame, and must never cover, overlap, or obstruct the character.
+
+STRICT COLOR PALETTE: BLACK, SILVER and GOLD ONLY. Black dominant, metallic silver secondary, luxurious antique gold accents. No red, no crimson, no blue, no purple, no green.
+
+Dramatic divine lighting, deep black shadows, cool silver highlights, subtle warm golden glow, realistic fantasy rendering, ultra-detailed textures, premium collectible deity artwork, majestic composition, sophisticated dark divine atmosphere, 8K, masterpiece, sharp details, vertical 9:16.`,
+  'original-female': `Use the attached face reference image to preserve the character's exact facial identity, face shape, facial features, hairstyle, eye shape, and overall appearance. Do not redesign the face.
+
+A majestic divine female deity representing the Zodiac Rat, dark gothic fantasy divine aesthetic, elegant, mysterious, intelligent, wealthy and powerful, luxurious high-end fantasy character artwork.
+
+((almost full body:1.8)), ((head-to-near-feet composition:1.8)), ((full character visible:1.8)), ((entire body clearly visible:1.7)), character shown from head down to near the ankles, generous space around the character, balanced vertical composition, not a close-up, not a half-body portrait, not cropped.
+
+((balanced rat ears:1.8)), ((medium-sized rounded rat ears:1.7)), clearly visible rounded rat ears positioned naturally on the upper sides of the head, proportional to the character's head, neither too large nor too small, symmetrical, elegant divine rat ears, naturally integrated with the hairstyle.
+
+Refined human facial structure with subtle rat-deity characteristics, calm intelligent expression, mysterious expressive eyes, graceful divine presence, subtle mystical markings around the eyes.
+
+((dark fantasy deity clothing:1.6)), luxurious Western dark-fantasy ceremonial attire, NOT traditional Chinese clothing, NOT Chinese costume. Predominantly black layered garments, elegant flowing black fabrics, dark leather details, black fur accents, polished silver ornaments, silver jewelry, elegant chains, refined antique gold decorations, luxurious high-fantasy royal design.
+
+Long flowing dark fantasy garments extending toward the lower body, elegant layered fabric, sophisticated waist ornaments, detailed fantasy boots, refined divine accessories.
+
+The deity symbolizes WISDOM, INTELLIGENCE, KNOWLEDGE, WEALTH, GOOD FORTUNE and PROSPERITY.
+
+Visual symbolism of wisdom: ancient magical books, glowing manuscripts, sacred knowledge symbols, mystical runes, floating pages and subtle luminous geometric symbols.
+
+Visual symbolism of wealth and fortune: elegant golden coins, precious treasure, subtle golden particles, sacred prosperity symbols, luxurious ornaments.
+
+Strong Zodiac Rat symbolism: ((sacred RAT ZODIAC emblem:1.7)), refined golden rat emblem integrated into the costume, subtle rat motifs engraved into jewelry and ornaments, small mystical rat symbols, elegant sacred rat imagery, sophisticated rather than cute.
+
+Ancient dark divine temple, monumental black stone architecture, dark metallic pillars, subtle silver ornaments, mysterious shadows, sacred atmosphere, elegant mystical environment.
+
+A delicate minimalist GOLDEN ORNAMENTAL BORDER surrounding the artwork, ((thin elegant golden linework:1.7)), fine celestial filigree, subtle geometric lines, small ornamental corner details, delicate zodiac symbols integrated into the border, refined RAT ZODIAC emblem subtly incorporated into the upper and lower border, small sacred rat motifs and prosperity symbols, thin metallic gold lines, elegant symmetrical decorative lines, luxurious but understated. The border must remain thin and delicate, never become a large heavy frame, and must never cover, overlap, or obstruct the character.
+
+STRICT COLOR PALETTE: BLACK, SILVER and GOLD ONLY. Black dominant, metallic silver secondary, luxurious antique gold accents. No red, no crimson, no blue, no purple, no green.
+
+Dramatic divine lighting, deep black shadows, cool silver highlights, subtle warm golden glow, realistic fantasy rendering, ultra-detailed textures, premium collectible deity artwork, majestic composition, sophisticated dark divine atmosphere, 8K, masterpiece, sharp details, vertical 9:16.`,
+};
+
+const dragonOriginalPrompt: Record<string, string> = {
+  'original-male': `Original face 100%
+9:16 VERTICAL ASPECT RATIO,
+SLENDER ELONGATED TAROT CARD FORMAT, Celestial Luxury, dark divine aesthetic, elegant mysterious dragon goddess frame,
+Premium tarot card proportions,
+
+Character Outfit:
+A stylish adult male wearing an oversized white futuristic streetwear outfit with a dark gothic cyberpunk aesthetic. A long, oversized white hooded jacket with a high collar, layered fabric, asymmetrical design, loose sleeves, black straps, silver buckles and intricate mechanical details. The jacket features a cropped front and long flowing panels, with subtle red accents and dark gray trim.
+
+Skeleton dragon head,
+
+A massive white skeletal exoskeleton structure attached to the character's back and shoulders. An intricate dragon bone-like armor frame extending from the upper back, wrapping around one shoulder and partially covering the torso.
+
+The skeletal structure features an enormous elongated spine-like framework, curved rib bones, layered vertebrae and sharp bone protrusions. Large white organic skeletal dragon bones form an asymmetrical protective shell around the character's shoulder and upper back.
+
+A large curved skeletal structure extends upward behind the character's head, resembling an enormous animal skeleton or a monstrous bone exoskeleton. Multiple segmented bone plates overlap along the shoulder and back, creating a distinctive rib cage silhouette.
+
+Long, curved, claw-like skeletal extensions protrude from the back, with intricate joints and articulated bone segments. Some skeletal parts extend outward like mechanical wings or additional skeletal limbs, creating an intimidating silhouette.
+
+The bone structure is predominantly ivory white with subtle gray shading, dark mechanical joints, black metallic connectors and small crimson red accents. Detailed bone textures, realistic anatomical curves, sharp edges and intricate skeletal articulation.
+
+SKELETAL ARMOR DETAILS:
+
+Large white skeletal frame covering the upper back and one shoulder.
+
+Prominent curved ribs extending around the shoulder and torso.
+
+An elongated vertebral column running vertically along the back.
+
+Large asymmetrical bone structures extending above and behind the head.
+
+Layered skeletal plates with sharp, pointed bone tips.
+
+Mechanical joints connecting the individual bone segments.
+
+Black chains and metallic fasteners securing the skeletal structure to the outfit.
+
+Subtle red markings and dark metallic details.
+
+Organic bone shapes combined with futuristic mechanical components.
+
+Oversized skeletal silhouette, dramatic and intimidating.
+
+Negative Prompt:
+Simple clothing, plain outfit, tight clothing, colorful outfit, excessive armor, medieval armor, casual T-shirt, missing straps, missing chains, missing buckles, symmetrical outfit, low-detail clothing, blurry textures, poorly drawn accessories.`,
+  'original-female': `Original face 100%
+9:16 VERTICAL ASPECT RATIO,
+SLENDER ELONGATED TAROT CARD FORMAT, Celestial Luxury, dark divine aesthetic, elegant mysterious dragon goddess frame,
+Premium tarot card proportions,
+
+OUTFIT & ACCESSORIES:
+
+Elegant white, black and crimson red gothic Japanese streetwear mixed with luxurious dark fantasy fashion, featuring an elaborate asymmetrical kimono-inspired outfit. Predominantly pure white clothing with contrasting black accessories, charcoal gray details, muted silver hardware and subtle crimson red accents.
+
+Upper Body:
+
+Pure white high-neck sleeveless crop top with a fitted silhouette and elegant black cross-shaped clasps.
+
+White inner top with a deep neckline and delicate black lace trim.
+
+Black choker with intricate muted silver metal ornaments.
+
+Asymmetrical detached sleeves with oversized flowing white fabric, black cuffs and charcoal gray details.
+
+Layered white fabric with black inner lining and subtle crimson red accents.
+
+Long flowing white and black fabric panels draped over the shoulders and arms.
+
+Intricate black embroidery with minimal crimson red decorative patterns.
+
+Waist & Lower Body:
+
+High-waisted black and white mini skirt with an elaborate asymmetrical layered design.
+
+Long flowing pure white kimono panels extending from the waist to the ankles.
+
+Black and charcoal gray fabric accents layered over the white panels.
+
+Subtle crimson red lining and decorative patterns.
+
+Wide black leather belt with muted silver buckles and decorative chains.
+
+Multiple hanging crimson red tassels, ornamental charms and metallic accessories.
+
+Intricate gothic floral embroidery in black and charcoal gray.
+
+Black thigh straps with muted silver buckles and subtle red details.
+
+Legwear & Footwear:
+
+Black thigh-high stockings with a sleek, fitted appearance.
+
+Asymmetrical black garter straps with muted silver buckles.
+
+Black platform boots with pure white and crimson red accents.
+
+High heels with elaborate gothic details, silver metallic ornaments and decorative straps.
+
+Glasses:
+
+Stylish round eyeglasses with thin black metal frames.
+
+Dark tinted circular lenses.
+
+Elegant minimalist design with a sophisticated gothic aesthetic.
+
+Dragon Horns:
+
+Two large, curved black dragon horns growing from the head.
+
+Long, sharp, backward-curving horns with pointed tips.
+
+Dark charcoal and black scales with subtle crimson red highlights.
+
+Intricate ridged textures and segmented details.
+
+Elegant symmetrical shape inspired by eastern fantasy dragons.
+
+Small muted silver ornaments and crimson red accessories attached to the horns.
+
+Dragon Tail:
+
+One long, thick, muscular dragon tail extending from the lower back.
+
+Elegant curved shape with a long, tapering tip.
+
+Pure white and pale gray overlapping dragon scales.
+
+Black sharp spikes running along the upper ridge of the tail.
+
+Subtle crimson red accents between the scales and along the underside.
+
+Large, pointed and slightly curved dragon tail tip.
+
+Detailed segmented scales with realistic texture.
+
+Flexible, curved silhouette, clearly visible behind the outfit.
+
+Accessories & Details:
+
+Long black and crimson red dangling earrings.
+
+Muted silver chains and decorative metal rings.
+
+Crimson red tassels and intricate gothic ornaments.
+
+Black floral hair accessories with subtle crimson red details.
+
+Multiple silver chains attached to the waist and sleeves.
+
+Elegant Japanese-inspired ornamental accessories.
+
+Black and silver decorative hardware throughout the outfit.
+
+Color Palette:
+Predominantly pure white, black, charcoal gray, muted silver and crimson red accents. High contrast between white clothing and black accessories. Pure white as the dominant color for the main outfit, black for structural details and accessories, charcoal gray for subtle shading, muted silver for metallic elements and crimson red for small decorative accents. Avoid excessive gold, burgundy and dark red.
+
+Style:
+Gothic Japanese fashion, elegant dark fantasy outfit, luxurious white kimono-inspired streetwear, intricate ornamental details, asymmetrical layered clothing, sophisticated gothic aesthetic, dragon-themed accessories, highly detailed fabric textures, premium fantasy costume design. Clean white and black contrast with subtle crimson red accents, elegant and mysterious appearance.
+
+Skeleton dragon head,
+
+A massive white skeletal exoskeleton structure attached to the character's back and shoulders. An intricate dragon bone-like armor frame extending from the upper back, wrapping around one shoulder and partially covering the torso.
+
+The skeletal structure features an enormous elongated spine-like framework, curved rib bones, layered vertebrae and sharp bone protrusions. Large white organic skeletal dragon bones form an asymmetrical protective shell around the character's shoulder and upper back.
+
+A large curved skeletal structure extends upward behind the character's head, resembling an enormous animal skeleton or a monstrous bone exoskeleton. Multiple segmented bone plates overlap along the shoulder and back, creating a distinctive rib cage silhouette.
+
+Long, curved, claw-like skeletal extensions protrude from the back, with intricate joints and articulated bone segments. Some skeletal parts extend outward like mechanical wings or additional skeletal limbs, creating an intimidating silhouette.
+
+The bone structure is predominantly ivory white with subtle gray shading, dark mechanical joints, black metallic connectors and small crimson red accents. Detailed bone textures, realistic anatomical curves, sharp edges and intricate skeletal articulation.
+
+SKELETAL ARMOR DETAILS:
+
+Large white skeletal frame covering the upper back and one shoulder.
+
+Prominent curved ribs extending around the shoulder and torso.
+
+An elongated vertebral column running vertically along the back.
+
+Large asymmetrical bone structures extending above and behind the head.
+
+Layered skeletal plates with sharp, pointed bone tips.
+
+Mechanical joints connecting the individual bone segments.
+
+Black chains and metallic fasteners securing the skeletal structure to the outfit.
+
+Subtle red markings and dark metallic details.
+
+Organic bone shapes combined with futuristic mechanical components.
+
+Oversized skeletal silhouette, dramatic and intimidating.`,
+};
+
+const customOriginalPromptsByCardId: Record<string, Record<string, string>> = {
+  cat: catOriginalPrompts,
+  dog: dogOriginalPrompts,
+  goat: goatOriginalPrompt,
+  horse: horseOriginalPrompt,
+  rabbit: rabbitOriginalPrompt,
+  rat: ratOriginalPrompt,
+  dragon: dragonOriginalPrompt,
+};
+
+const promptCreditsByCardId: Record<string, Record<string, string>> = {
+  cat: {
+    'original-male': 'Shhhh',
+    'original-female': 'Shhhh',
+  },
+  dog: {
+    'original-male': 'Shhhh',
+    'original-female': 'Shhhh',
+  },
+  goat: {
+    'original-female': 'Shhhh',
+  },
+  rabbit: {
+    'original-male': 'Jimmy xi',
+    'original-female': 'Jimmy xi',
+  },
+  rat: {
+    'original-male': 'Jimmy xi',
+    'original-female': 'Jimmy xi',
+  },
+  dragon: {
+    'original-male': 'Shhhh',
+    'original-female': 'Shhhh',
+  },
+  horse: {
+    'special-male': 'Arynn Rxynn',
+    'special-female': 'Arynn Rxynn',
+  },
+};
+
+const originalOnlyCardIds = ['cat', 'goat', 'rabbit', 'rat', 'dragon'];
+
 export function getCardPrompts(card: ZodiacCard): CardPrompt[] {
-  const availableVariants = card.id === 'cat' || card.id === 'goat'
+  const customPrompts = customOriginalPromptsByCardId[card.id];
+  const availableVariants = originalOnlyCardIds.includes(card.id)
     ? promptVariants.slice(0, 2)
     : card.id === 'dog'
-      ? promptVariants.filter(variant => variant.id in dogOriginalPrompts)
+      ? promptVariants.filter(variant => variant.id in customPrompts)
       : promptVariants;
-  return availableVariants.map(variant => ({
-    id: variant.id,
-    name: variant.name,
-    text: card.id === 'cat'
-      ? catOriginalPrompts[variant.id]
-      : card.id === 'dog'
-        ? dogOriginalPrompts[variant.id]
-        : card.id === 'goat'
-          ? goatOriginalPrompt[variant.id]
-          : `${card.imagePrompt}\n\n${variant.direction}`,
-  }));
+
+  return availableVariants.map(variant => {
+    const promptText = customPrompts?.[variant.id] ?? `${card.imagePrompt}\n\n${variant.direction}`;
+    const promptCredit = promptCreditsByCardId[card.id]?.[variant.id];
+
+    return {
+      id: variant.id,
+      name: promptCredit ? `${variant.name} | Cr. ${promptCredit}` : variant.name,
+      text: card.id === 'horse' && promptCredit ? `${promptText}\n\nCr. ${promptCredit}` : promptText,
+    };
+  });
 }

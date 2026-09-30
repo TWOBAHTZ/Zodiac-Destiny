@@ -33,10 +33,32 @@ export const cardArtworkById: Record<string, CardArtwork> = {
     mainCredit: 'Cr. Shhhh',
     additionalImages: [],
   },
-  horse: {
-    mainImage: publicImage('horse', 'ม้า - ชาย.png'),
+  dragon: {
+    mainImage: publicImage('dragon', 'มังกร - ชาย.jpg'),
+    mainCredit: 'Cr. Shhhh',
     additionalImages: [
-      { src: publicImage('horse', 'ม้า - Sp.หญิง.jpg'), alt: 'The Horse special female artwork', label: 'ARTWORK 02' },
+      { src: publicImage('dragon', 'มังกร - หญิง.jpg'), alt: 'The Dragon alternate artwork', label: 'ARTWORK 02', credit: 'Cr. Shhhh' },
+    ],
+  },
+  rabbit: {
+    mainImage: publicImage('rabbit', 'กระต่าย - ชาย.jpg'),
+    mainCredit: 'Cr. Jimmy xi',
+    additionalImages: [
+      { src: publicImage('rabbit', 'กระต่าย - หญิง.jpg'), alt: 'The Rabbit alternate artwork', label: 'ARTWORK 02', credit: 'Cr. Jimmy xi' },
+    ],
+  },
+  rat: {
+    mainImage: publicImage('rat', 'หนู - ชาย.jpg'),
+    mainCredit: 'Cr. Jimmy xi',
+    additionalImages: [
+      { src: publicImage('rat', 'หนู - หญิง.jpg'), alt: 'The Rat alternate artwork', label: 'ARTWORK 02', credit: 'Cr. Jimmy xi' },
+    ],
+  },
+  horse: {
+    mainImage: publicImage('horse', 'ม้า - Sp.ชาย.jpg'),
+    mainCredit: 'Cr. Arynn Rxynn',
+    additionalImages: [
+      { src: publicImage('horse', 'ม้า - Sp.หญิง.jpg'), alt: 'The Horse special female artwork', label: 'ARTWORK 02', credit: 'Cr. Arynn Rxynn' },
     ],
   },
   monkey: {
